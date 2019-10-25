@@ -11,13 +11,7 @@ from modi._json_box import JsonBox
 import modi._cmd as md_cmd
 from modi._tasks import *
 
-import sys
-IS_PY2 = sys.version_info < (3, 0)
-
-if IS_PY2:
-    from Queue import Queue
-else:
-    from queue import Queue
+from multiprocessing import Queue
 
 class MODI:
     """
@@ -62,14 +56,14 @@ class MODI:
         else:
             self._serial = serial.Serial(port, 115200)
 
-        self._threads = list()
+        self._processes = list()
         tasks = [ReadDataTask, ParseDataTask, ProcDataTask, WriteDataTask, WriteDisplayDataTask]
 
         for task in tasks:
-            thread = task(self) 
-            thread.daemon = True
-            thread.start()
-            self._threads.append(thread)
+            process = task(self) 
+            process.daemon = True
+            process.start()
+            self._processes.append(process)
         
         time.sleep(1)
         

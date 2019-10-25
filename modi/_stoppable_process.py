@@ -5,12 +5,13 @@
 from __future__ import absolute_import
 
 from abc import *
-import threading
+from multiprocessing import Process
+from multiprocessing import Event
 
-class StoppableThread(threading.Thread):
+class StoppableProcess(Process):
     def __init__(self):
-        super(StoppableThread, self).__init__(target=self.run)
-        self._stop = threading.Event()
+        super(StoppableProcess, self).__init__(target=self.run)
+        self._stop = Event()
 
     def stop(self):
         self._stop.set()

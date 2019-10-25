@@ -5,7 +5,7 @@
 from __future__ import absolute_import
 
 import modi._cmd as md_cmd 
-from modi._stoppable_thread import StoppableThread
+from modi._stoppable_process import StoppableProcess
 from modi.serial import list_ports
 from modi.module import *
 import modi._util as md_util
@@ -16,9 +16,9 @@ import weakref
 import time
 import base64
 import struct
-import multiprocessing 
+from multiprocessing import cpu_count
 
-class MODITask(StoppableThread):
+class MODITask(StoppableProcess):
     def __init__(self, modi):
         super(MODITask, self).__init__()
         self._modi = weakref.ref(modi)
@@ -31,7 +31,7 @@ class ReadDataTask(MODITask):
         modi = self._modi()
 
         while not self.stopped():
-            modi._json_box.add(modi._serial.read(modi._serial.in_waiting).decode())
+            modi._json_box.add(modi._serial.read(modi._serial.in_waiting))
 
 class ParseDataTask(MODITask):
     def __init__(self, modi):
@@ -43,7 +43,7 @@ class ParseDataTask(MODITask):
         while not self.stopped():
             try:
                 while modi._json_box.has_json():
-                    modi._recv_q.put(modi._json_box.json)
+                    modi._recv_q.put(modi._json_box.json.decode())
             except:
                 pass
 
@@ -61,7 +61,7 @@ class ProcDataTask(MODITask):
 
     def run(self):
         modi = self._modi()
-        pool = ThreadPool(multiprocessing.cpu_count())
+        pool = ThreadPool(cpu_count())
 
         while not self.stopped():
             try:
