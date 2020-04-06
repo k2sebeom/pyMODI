@@ -2,13 +2,16 @@ import time
 import queue
 import serial
 
+import serial.tools.list_ports as stl
+
 from serial import SerialException
+
 
 from modi._communicator_task import CommunicatorTask
 
 
 class SerTask(CommunicatorTask):
-
+    
     def __init__(self, ser_recv_q, ser_send_q):
         super().__init__(ser_recv_q, ser_send_q)
         self._ser_recv_q = ser_recv_q
@@ -23,7 +26,7 @@ class SerTask(CommunicatorTask):
     def open_conn(self):
         """ Open serial port
         """
-
+        
         modi_ports = self._list_modi_ports()
         if not modi_ports:
             raise SerialException("No MODI network module is connected.")
@@ -64,7 +67,6 @@ class SerTask(CommunicatorTask):
     def _write_data(self):
         """ Write serial message in serial write queue
         """
-
         try:
             message_to_write = self._ser_send_q.get_nowait().encode()
         except queue.Empty:
