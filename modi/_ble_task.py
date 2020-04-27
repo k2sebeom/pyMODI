@@ -22,13 +22,15 @@ class BleTask(ConnTask):
         self.adapter = pygatt.GATTToolBackend()
         self.device = None
 
+        self._open_conn()
+
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
         self._close_conn()
 
-    def open_conn(self):
+    def _open_conn(self):
         os.system("sudo hciconfig hci0 up")
         self.adapter.start()
         self.__connect("MODI_7EF42AFB")
