@@ -31,7 +31,8 @@ class BleTask(ConnTask):
         self.__connect("MODI_7EF42AFB")
 
     def _close_conn(self):
-        #self._write_data("")
+        # Reboot modules to stop receiving channel messages
+        self._write_data(b'{"c":9,"s":0,"d":4095,"b":"Bgg=","l":2}')
         self.adapter.stop()
         os.system("sudo hciconfig hci0 down")
 
@@ -43,7 +44,7 @@ class BleTask(ConnTask):
 
         json_msg = self.__parse_ble_msg(value)
         self._ble_recv_q.put(json_msg)
-        print("recv_msg")
+        print("recv_msg", json_msg)
 
     def __ble_write(self):
         try:
