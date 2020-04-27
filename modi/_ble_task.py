@@ -22,7 +22,10 @@ class BleTask(ConnTask):
         self.adapter = pygatt.GATTToolBackend()
         self.device = None
 
-    def __del__(self):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
         self._close_conn()
 
     def open_conn(self):
@@ -44,7 +47,7 @@ class BleTask(ConnTask):
 
         json_msg = self.__parse_ble_msg(value)
         self._ble_recv_q.put(json_msg)
-        print("recv_msg", json_msg)
+        print("recv_msg:", json_msg)
 
     def __ble_write(self):
         try:
@@ -59,11 +62,8 @@ class BleTask(ConnTask):
         json_msg = json.loads(str_msg)
         ble_msg = self.__compose_ble_msg(json_msg)
 
-        try:
-            self.device.char_write(self.char_uuid, ble_msg)
-        # TODO: Raise explicit exception
-        except NotificationTimeout:
-            raise ValueError("Ble message not sent!")
+        # TODO: Catch exception
+        self.device.char_write(self.char_uuid, ble_msg)
     
     def run_read_data(self, delay):
         self.device.subscribe(self.char_uuid, callback=self.__ble_read)

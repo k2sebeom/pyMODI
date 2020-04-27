@@ -14,35 +14,44 @@ class ConnProc(mp.Process):
 
     def __init__(self, recv_q, send_q, conn_mode):
         super().__init__()
-        self.__task = self.__init_task(conn_mode)(recv_q, send_q)
+        #self.__task = BleTask(recv_q, send_q)
         self.__delay = 0.001
-    
-    def __init_task(self, conn_mode):
-        # TODO: Replace if and else branches
-        conn_mode_in_lower_case = conn_mode.lower()
-        if conn_mode_in_lower_case.startswith("ser"):
-            return SerTask
-        elif conn_mode_in_lower_case.startswith("can"):
-            return CanTask
-        elif conn_mode_in_lower_case.startswith("ble"):
-            return BleTask
-        else:
-            raise Exception("No connection mode exists for:", conn_mode)
+
+        self.recv_q = recv_q
+        self.send_q = send_q
 
     def run(self):
-        self.__task.open_conn()
+        #self.__task.open_conn()
 
-        read_thread = th.Thread(
-            target=self.__task.run_read_data, args=(self.__delay,)
-        )
-        read_thread.daemon = True
-        read_thread.start()
+        #read_thread = th.Thread(
+        #    target=self.__task.run_read_data, args=(self.__delay,)
+        #)
+        #read_thread.daemon = True
+        #read_thread.start()
 
-        write_thread = th.Thread(
-            target=self.__task.run_write_data, args=(self.__delay,)
-        )
-        write_thread.daemon = True
-        write_thread.start()
+        #write_thread = th.Thread(
+        #    target=self.__task.run_write_data, args=(self.__delay,)
+        #)
+        #write_thread.daemon = True
+        #write_thread.start()
 
-        read_thread.join()
-        write_thread.join()
+        #read_thread.join()
+        #write_thread.join()
+
+        with BleTask(self.recv_q, self.send_q) as ble:
+            ble.open_conn()
+
+            read_thread = th.Thread(
+                target=ble.run_read_data, args=(self.__delay,)
+            )
+            read_thread.daemon = True
+            read_thread.start()
+
+            write_thread = th.Thread(
+                target=ble.run_write_data, args=(self.__delay,)
+            )
+            write_thread.daemon = True
+            write_thread.start()
+
+            read_thread.join()
+            write_thread.join()
