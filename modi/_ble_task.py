@@ -7,6 +7,7 @@ import pygatt
 
 from pygatt.exceptions import BLEError
 from pygatt.exceptions import NotConnectedError
+from pygatt.exceptions import NotificationTimeout
 
 from modi._conn_task import ConnTask
 
@@ -27,7 +28,7 @@ class BleTask(ConnTask):
     def open_conn(self):
         os.system("sudo hciconfig hci0 up")
         self.adapter.start()
-        self.__connect("MODI_1022889")
+        self.__connect("MODI_7EF42AFB")
 
     def _close_conn(self):
         self.adapter.stop()
@@ -58,7 +59,7 @@ class BleTask(ConnTask):
         try:
             self.device.char_write(self.char_uuid, ble_msg)
         # TODO: Raise explicit exception
-        except:
+        except NotificationTimeout:
             raise ValueError("Ble message not sent!")
     
     def run_read_data(self, delay):
