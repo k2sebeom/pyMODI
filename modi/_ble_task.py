@@ -30,6 +30,7 @@ class BleTask(ConnTask):
         self.__connect("MODI_1022889")
 
     def _close_conn(self):
+        #self._write_data("")
         self.adapter.stop()
         os.system("sudo hciconfig hci0 down")
 
@@ -41,6 +42,7 @@ class BleTask(ConnTask):
 
         json_msg = self.__parse_ble_msg(value)
         self._ble_recv_q.put(json_msg)
+        print("recv_msg")
 
     def __ble_write(self):
         try:
@@ -49,7 +51,7 @@ class BleTask(ConnTask):
             pass
         else:
             self._write_data(message_to_write)
-            print("wrt msg:", message_to_write)
+            print("send_msg:", message_to_write)
     
     def _write_data(self, str_msg):
         json_msg = json.loads(str_msg)

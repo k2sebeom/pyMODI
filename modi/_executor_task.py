@@ -60,7 +60,6 @@ class ExecutorTask:
         except queue.Empty:
             pass
         else:
-            print('recv msg:',message)
             self.__command_handler(message["c"])(message)
 
         time.sleep(delay)
