@@ -106,13 +106,11 @@ class Speaker(OutputModule):
     def set_tune(self, frequency_value: float = None, volume_value: float = None) -> Tuple[float, float]:
         """Set tune for the speaker
 
-        * If either *frequency* or *volume* is not ``None``,
         :param frequency_value: Frequency to set or ``None``.
         :type frequency_value: float
         :param volume_value: Volume to set or ``None``.
         :type volume_value: float
-        :return: If *frequency_value* and *volume_value* are ``None``,
-            frequency_value, volume_value.
+        :return: frequency_value, volume_value.
         :rtype: Tuple[float, float]
         """
         if not (frequency_value is None and volume_value is None):

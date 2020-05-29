@@ -24,8 +24,7 @@ from modi.module.module import Module
 
 class ExeTask:
     """
-    :param queue send_q: Inter-process queue for writing serial
-    message.
+    :param queue send_q: Inter-process queue for writing serial message.
     :param queue recv_q: Inter-process queue for parsing json message.
     :param dict() module_ids: dict() of module_id : ['timestamp', 'uuid'].
     :param list() modules: list() of module instance.

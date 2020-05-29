@@ -23,18 +23,18 @@ import sys
 import modi
 from m2r import parse_from_file
 
-file = open('readme.rst', 'w', encoding='utf8')
-file.write(parse_from_file('../README.md'))
-file.close()
+# file = open('readme.rst', 'w', encoding='utf8')
+# file.write(parse_from_file('../README.md'))
+# file.close()
 
 file = open('history.rst', 'w', encoding='utf8')
 file.write(parse_from_file('../HISTORY.md'))
 file.close()
 sys.path.insert(0, os.path.abspath('..'))
 
-file = open('contributing.rst', 'w', encoding='utf8')
-file.write(parse_from_file('../CONTRIBUTING.md'))
-file.close()
+# file = open('contributing.rst', 'w', encoding='utf8')
+# file.write(parse_from_file('../CONTRIBUTING.md'))
+# file.close()
 
 file = open('authors.rst', 'w', encoding='utf8')
 file.write(parse_from_file('../AUTHORS.md'))

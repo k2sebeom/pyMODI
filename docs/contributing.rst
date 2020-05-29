@@ -66,14 +66,13 @@ development.
 
 
 #. Fork the [modi]{.title-ref} repo on GitHub.
-#. 
-   Clone your fork locally:
+#. Clone your fork locally:
 
    .. code-block::
 
       $ git clone git@github.com:your_name_here/LUXROBO/pymodi.git
 
-#. 
+#.
    Install your local copy into a virtualenv. Assuming you have
    virtualenvwrapper installed, this is how you set up your fork for
    local development:
@@ -84,7 +83,7 @@ development.
       $ cd modi/
       $ python setup.py develop
 
-#. 
+#.
    Create a branch for local development:
 
    .. code-block::
@@ -94,7 +93,7 @@ development.
 
    Now you can make your changes locally.
 
-#. 
+#.
    When you\'re done making changes, check that your changes pass
    flake8 and the tests, including testing other Python versions with
    tox:
@@ -108,7 +107,7 @@ development.
 
    To get flake8 and tox, just pip install them into your virtualenv.
 
-#. 
+#.
    Commit your changes and push your branch to GitHub:
 
    .. code-block::
@@ -117,7 +116,7 @@ development.
       $ git commit -m "Your detailed description of your changes."
       $ git push origin name-of-your-bugfix-or-feature
 
-#. 
+#.
    Submit a pull request through the GitHub website.
 
 Pull Request Guidelines

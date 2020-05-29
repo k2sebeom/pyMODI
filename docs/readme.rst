@@ -9,45 +9,6 @@ pymodi
 
 ----
 
-.. list-table::
-   :header-rows: 1
-
-   * - pyversion
-     - distribution
-     - documentation
-     - coverage
-     - maintainability
-     - license
-   * - 
-     .. image:: https://img.shields.io/pypi/pyversions/pymodi.svg
-        :target: https://pypi.python.org/pypi/pymodi
-        :alt: image
-     
-     - 
-     .. image:: https://img.shields.io/pypi/v/pymodi.svg
-        :target: https://pypi.python.org/pypi/pymodi
-        :alt: image
-     
-     - 
-     .. image:: https://readthedocs.org/projects/pymodi/badge/?version=latest
-        :target: https://pymodi.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-     
-     - 
-     .. image:: https://coveralls.io/repos/github/LUXROBO/pymodi/badge.svg
-        :target: https://coveralls.io/github/LUXROBO/pymodi
-        :alt: Coverage Status
-     
-     - 
-     .. image:: https://api.codeclimate.com/v1/badges/5a62f1585d723099e337/maintainability
-        :target: https://codeclimate.com/github/LUXROBO/pymodi/maintainability
-        :alt: Maintainability
-     
-     - 
-     .. image:: https://img.shields.io/pypi/l/pymodi.svg?color=blue
-        :target: https://github.com/LUXROBO/pyMODI/blob/master/LICENSE
-        :alt: 
-     
 
 
 Easy😆 and fast💨 MODI Python API package.
@@ -59,92 +20,11 @@ Easy😆 and fast💨 MODI Python API package.
 Features
 --------
 
-
 * Connect to the MODI network module and control input & output
   modules.
 * List serial ports of MODI network modules.
 * Turn on or off the PnP mode of MODI modules.
 * Get the position information of each modules.
-
-Build Status
-------------
-
-.. list-table::
-   :header-rows: 1
-
-   * - master
-     - develop
-   * - 
-     .. image:: https://travis-ci.org/LUXROBO/pyMODI.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pyMODI
-        :alt: image
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pyMODI.svg?branch=develop
-        :target: https://travis-ci.org/LUXROBO/pyMODI
-        :alt: image
-     
-
-
-System Support
---------------
-
-.. list-table::
-   :header-rows: 1
-
-   * - System
-     - 3.6
-     - 3.7
-     - 3.8
-   * - Linux
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-   * - Mac OS
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-   * - Windows
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-     - 
-     .. image:: https://travis-ci.org/LUXROBO/pymodi.svg?branch=master
-        :target: https://travis-ci.org/LUXROBO/pymodi
-        :alt: Build Status
-     
-
 
 Contribution Guidelines
 -----------------------
