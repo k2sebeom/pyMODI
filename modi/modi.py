@@ -107,7 +107,7 @@ class MODI:
         print("Request to update firmware of connected MODI modules.")
         self._firmware_updater.reset_state()
         self._firmware_updater.request_to_update_firmware()
-        #self.firmware_updater.update_event.wait()
+        # self.firmware_updater.update_event.wait()
         print("Module firmwares have been updated!")
 
     def watch_child_process(self) -> None:
@@ -219,3 +219,6 @@ class MODI:
 
         return tuple([module for module in self.modules
                       if module.type == "ultrasonic"])
+
+    def foo(self):
+        print("foo")
