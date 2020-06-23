@@ -2,7 +2,7 @@
 name: Unit Test (Windows)
 
 on:
-  [ "push", "pull_request" ]
+  [ push, pull_request ]
 
 jobs:
   build:
