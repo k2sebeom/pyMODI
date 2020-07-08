@@ -28,3 +28,10 @@ jobs:
         python -m unittest
     - name: Run convention tests
       run: python -m flake8 modi tests
+    - name: Build Docs
+      run: |
+          pip install sphinx sphinx-apidoc
+          cd docs
+          sphinx-apidoc -fTEM -o . ../modi
+          make clean
+          make html
