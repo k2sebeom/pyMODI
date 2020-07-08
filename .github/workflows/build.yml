@@ -30,7 +30,7 @@ jobs:
       run: python -m flake8 modi tests
     - name: Build Docs
       run: |
-          pip install sphinx sphinx-apidoc
+          pip install sphinx
           cd docs
           sphinx-apidoc -fTEM -o . ../modi
           make clean
