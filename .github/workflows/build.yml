@@ -30,7 +30,7 @@ jobs:
       run: python -m flake8 modi tests
     - name: Build Docs
       run: |
-          pip install sphinx m2r
+          pip install sphinx m2r sphinx_rtd_theme
           cd docs
           sphinx-apidoc -fTEM -o . ../modi
           make clean
