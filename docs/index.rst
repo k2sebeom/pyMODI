@@ -1,4 +1,4 @@
-Welcome to pyMODI's documentation!
+Welcome to pymodi's documentation!
 ==================================
 
 .. toctree::
@@ -8,9 +8,9 @@ Welcome to pyMODI's documentation!
    readme
    installation
    usage
-   modules
-   contributing
+   modi
    authors
+   contributing
    history
 
 Indices and tables
