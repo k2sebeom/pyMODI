@@ -1,0 +1,24 @@
+{
+  "name": "pymodi",
+  "version": "0.9.2",
+  "description": "<p align=\"center\">\r \t<img src=\"https://github.com/LUXROBO/pymodi/blob/master/docs/_static/img/logo.png\" width=\"500\" height=\"150\">\r </p>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k2sebeom/pymodi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k2sebeom/pymodi/issues"
+  },
+  "homepage": "https://github.com/k2sebeom/pymodi#readme"
+}
