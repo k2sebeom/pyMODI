@@ -28,7 +28,37 @@ jobs:
         python -m unittest
     - name: Run convention tests
       run: python -m flake8 modi tests
-    - name: Code Climate Coverage Action
-      uses: paambaati/codeclimate-action@v2.6.0
+  test:
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest, macOS-latest ]
+        node: [ '12', '10' ]
+    name: test/node ${{ matrix.node }}/${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@main
+    - uses: actions/setup-node@main
+      with:
+        node-version: ${{ matrix.node }}
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
+    - run: yarn test
+  coverage:
+    needs: [ test ]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - uses: actions/setup-node@main
+      with:
+        node-version: '12'
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
+    - uses: paambaati/codeclimate-action@v2.5.7
       env:
-        CC_TEST_REPORTER_ID: 22534fc5e1a1c5971ae849d3840aa421759e7dd46434e517eaecee40ca9e1645 
+        CC_TEST_REPORTER_ID: 22534fc5e1a1c5971ae849d3840aa421759e7dd46434e517eaecee40ca9e1645
+      with:
+        coverageCommand: yarn coverage
+        debug: true
