@@ -28,11 +28,11 @@ jobs:
         python -m unittest
     - name: Run convention tests
       run: python -m flake8 modi tests
+    - name: Run coverage tests
+      run: coverage run --source=modi.module setup.py test
     - name: Code Climate Coverage Action
       uses: paambaati/codeclimate-action@v2.6.0
       with:
         # Coverage command to execute
-        coverageCommand: |
-          coverage run --source=modi.module setup.py test
-          coverage xml
+        coverageCommand: coverage xml
         coverageLocations: ./coverage.xml:coverage.py
