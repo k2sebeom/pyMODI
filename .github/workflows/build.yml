@@ -33,3 +33,4 @@ jobs:
       with:
         # Coverage command to execute
         coverageCommand: coverage run --source=modi.module setup.py test
+        coverageLocations: .coverage
