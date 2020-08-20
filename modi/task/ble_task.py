@@ -15,11 +15,12 @@ from modi.util.conn_util import MODIConnectionError
 
 class BleTask(ConnTask):
 
+    CHAR_UUID = '00008421-0000-1000-8000-00805f9b34fb'
+
     def __init__(self, verbose=False, uuid=None):
         super().__init__(verbose=verbose)
         self._loop = asyncio.get_event_loop()
         self.__uuid = uuid
-        self.__char_uuid = ""
         self._recv_q = Queue()
         self._send_q = Queue()
         self.__close_event = False
@@ -43,24 +44,18 @@ class BleTask(ConnTask):
         await client.connect()
         return client
 
-    async def __get_characteristic_uuid(self):
-        for service in self._bus.services:
-            for char in service.characteristics:
-                if 'notify' in char.properties:
-                    return char.uuid
-
     def __run_loop(self):
         asyncio.set_event_loop(self._loop)
         self._loop.run_until_complete(self.__communicate())
 
     async def __communicate(self):
-        await self._bus.start_notify(self.__char_uuid, self.__recv_handler)
+        await self._bus.start_notify(self.CHAR_UUID, self.__recv_handler)
         while True:
             if self._send_q.empty():
                 await asyncio.sleep(0.001)
             else:
                 await self._bus.write_gatt_char(
-                    self.__char_uuid, self._send_q.get()
+                    self.CHAR_UUID, self._send_q.get()
                 )
             if self.__close_event:
                 break
@@ -75,9 +70,6 @@ class BleTask(ConnTask):
             self._bus = self._loop.run_until_complete(
                 self.__connect(modi_device.address)
             )
-            self.__char_uuid = self._loop.run_until_complete(
-                self.__get_characteristic_uuid()
-            )
             Thread(target=self.__run_loop, daemon=True).start()
             print(f"Connected to {modi_device.name}")
         else:
@@ -85,7 +77,7 @@ class BleTask(ConnTask):
                                       f" not found!")
 
     async def __close_client(self):
-        await self._bus.stop_notify(self.__char_uuid)
+        await self._bus.stop_notify(self.CHAR_UUID)
         await self._bus.disconnect()
 
     def close_conn(self):
