@@ -1,0 +1,9 @@
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\bin\Debug\netstandard2.0\BleTaskWin.deps.json
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\bin\Debug\netstandard2.0\BleTaskWin.dll
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\bin\Debug\netstandard2.0\BleTaskWin.pdb
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.csprojAssemblyReference.cache
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.AssemblyInfoInputs.cache
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.AssemblyInfo.cs
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.dll
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.pdb
+C:\Users\sebeo\Desktop\Main Folder\LuxRobo Intern\BleTaskWin\obj\Debug\netstandard2.0\BleTaskWin.csproj.CoreCompileInputs.cache

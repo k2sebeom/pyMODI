@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "qxncbncqMp+fsXfQnCCORdVWzw96hxMHgK0b1q00td3h5zVwOoAnKHm+7Bv37APQwfkTaLMPwScLtq0Bw+XxNw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sebeo\\Desktop\\Main Folder\\LuxRobo Intern\\BleTaskWin\\BleTaskWin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sebeo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.19041.1\\microsoft.windows.sdk.contracts.10.0.19041.1.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
+    "C:\\Users\\sebeo\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
